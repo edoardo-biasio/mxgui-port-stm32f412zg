@@ -361,11 +361,11 @@ private:
         writeData(0x00 + ((p2.x() + 80) >> 8));
         writeData(0x00 + ((p2.x() + 80) & 0xFF));
         #elif defined MXGUI_ORIENTATION_HORIZONTAL
-        TODO: implement
+        /// TODO: implement
         #elif defined MXGUI_ORIENTATION_VERTICAL_MIRRORED
-        TODO: implement
+        /// TODO: implement
         #else //MXGUI_ORIENTATION_HORIZONTAL_MIRRORED
-        TODO: implement
+        /// TODO: implement
         #endif
     }
 
@@ -394,11 +394,11 @@ private:
         writeData(0x00 + ((p2.y() + 0) >> 8));
         writeData(0x00 + ((p2.y() + 0) & 0xFF));
         #elif defined MXGUI_ORIENTATION_HORIZONTAL
-        TODO: implement
+        /// TODO: implement
         #elif defined MXGUI_ORIENTATION_VERTICAL_MIRRORED
-        TODO: implement
+        /// TODO: implement
         #else //MXGUI_ORIENTATION_HORIZONTAL_MIRRORED
-        TODO: implement
+        /// TODO: implement
         #endif
     }
 

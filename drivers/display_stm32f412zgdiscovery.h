@@ -316,31 +316,31 @@ private:
         writeData(0xA0);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p.x() + 80) >> 8));
-        writeData(0x00 + ((p.x() + 80) & 0xFF));
-        writeData(0x00 + ((p.x() + 80) >> 8));
-        writeData(0x00 + ((p.x() + 80) & 0xFF));
+        writeData((p.x() + 80) >> 8);
+        writeData((p.x() + 80) & 0xFF);
+        writeData((p.x() + 80) >> 8);
+        writeData((p.x() + 80) & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + (p.y() >> 8));
-        writeData(0x00 + (p.y() & 0xFF));
-        writeData(0x00 + (p.y() >> 8));
-        writeData(0x00 + (p.y() & 0xFF));
+        writeData(p.y() >> 8);
+        writeData(p.y() & 0xFF);
+        writeData(p.y() >> 8);
+        writeData(p.y() & 0xFF);
         #elif defined MXGUI_ORIENTATION_HORIZONTAL
         writeReg(0x36);
         writeData(0x00);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p.x() + 0) >> 8));
-        writeData(0x00 + ((p.x() + 0) & 0xFF));
-        writeData(0x00 + ((p.x() + 0) >> 8));
-        writeData(0x00 + ((p.x() + 0) & 0xFF));
+        writeData(p.x() >> 8);
+        writeData(p.x() & 0xFF);
+        writeData(p.x() >> 8);
+        writeData(p.x() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + (p.y() >> 8));
-        writeData(0x00 + (p.y() & 0xFF));
-        writeData(0x00 + (p.y() >> 8));
-        writeData(0x00 + (p.y() & 0xFF));
+        writeData(p.y() >> 8);
+        writeData(p.y() & 0xFF);
+        writeData(p.y() >> 8);
+        writeData(p.y() & 0xFF);
 
         #elif defined MXGUI_ORIENTATION_VERTICAL_MIRRORED
         
@@ -348,31 +348,31 @@ private:
         writeData(0x60);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p.x() + 0) >> 8));
-        writeData(0x00 + ((p.x() + 0) & 0xFF));
-        writeData(0x00 + ((p.x() + 0) >> 8));
-        writeData(0x00 + ((p.x() + 0) & 0xFF));
+        writeData(p.x() >> 8);
+        writeData(p.x() & 0xFF);
+        writeData(p.x() >> 8);
+        writeData(p.x() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + (p.y() >> 8));
-        writeData(0x00 + (p.y() & 0xFF));
-        writeData(0x00 + (p.y() >> 8));
-        writeData(0x00 + (p.y() & 0xFF));
+        writeData(p.y() >> 8);
+        writeData(p.y() & 0xFF);
+        writeData(p.y() >> 8);
+        writeData(p.y() & 0xFF);
         #else // MXGUI_ORIENTATION_HORIZONTAL_MIRRORED
         writeReg(0x36);
         writeData(0xC0);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p.x() + 0) >> 8));
-        writeData(0x00 + ((p.x() + 0) & 0xFF));
-        writeData(0x00 + ((p.x() + 0) >> 8));
-        writeData(0x00 + ((p.x() + 0) & 0xFF));
+        writeData(p.x() >> 8);
+        writeData(p.x() & 0xFF);
+        writeData(p.x() >> 8);
+        writeData(p.x() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p.y() + 80) >> 8));
-        writeData(0x00 + ((p.y() + 80) & 0xFF));
-        writeData(0x00 + ((p.y() + 80) >> 8));
-        writeData(0x00 + ((p.y() + 80) & 0xFF));
+        writeData((p.y() + 80) >> 8);
+        writeData((p.y() + 80) & 0xFF);
+        writeData((p.y() + 80) >> 8);
+        writeData((p.y() + 80) & 0xFF);
         #endif
     }
     
@@ -391,31 +391,31 @@ private:
         writeData(0x80);
         
         writeReg(0x2A);
-        writeData(0x00 + (p1.y() >> 8));
-        writeData(0x00 + (p1.y() & 0xFF));
-        writeData(0x00 + (p2.y() >> 8));
-        writeData(0x00 + (p2.y() & 0xFF));
+        writeData(p1.y() >> 8);
+        writeData(p1.y() & 0xFF);
+        writeData(p2.y() >> 8);
+        writeData(p2.y() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.x() + 80) >> 8));
-        writeData(0x00 + ((p1.x() + 80) & 0xFF));
-        writeData(0x00 + ((p2.x() + 80) >> 8));
-        writeData(0x00 + ((p2.x() + 80) & 0xFF));
+        writeData((p1.x() + 80) >> 8);
+        writeData((p1.x() + 80) & 0xFF);
+        writeData((p2.x() + 80) >> 8);
+        writeData((p2.x() + 80) & 0xFF);
         #elif defined MXGUI_ORIENTATION_HORIZONTAL
         writeReg(0x36);
         writeData(0x20);
         
         writeReg(0x2A);
-        writeData(0x00 + (p1.y() >> 8));
-        writeData(0x00 + (p1.y() & 0xFF));
-        writeData(0x00 + (p2.y() >> 8));
-        writeData(0x00 + (p2.y() & 0xFF));
+        writeData(p1.y() >> 8);
+        writeData(p1.y() & 0xFF);
+        writeData(p2.y() >> 8);
+        writeData(p2.y() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.x() + 0) >> 8));
-        writeData(0x00 + ((p1.x() + 0) & 0xFF));
-        writeData(0x00 + ((p2.x() + 0) >> 8));
-        writeData(0x00 + ((p2.x() + 0) & 0xFF));
+        writeData(p1.x() >> 8);
+        writeData(p1.x() & 0xFF);
+        writeData(p2.x() >> 8);
+        writeData(p2.x() & 0xFF);
 
         #elif defined MXGUI_ORIENTATION_VERTICAL_MIRRORED
         
@@ -423,31 +423,31 @@ private:
         writeData(0x40);
         
         writeReg(0x2A);
-        writeData(0x00 + (p1.y() >> 8));
-        writeData(0x00 + (p1.y() & 0xFF));
-        writeData(0x00 + (p2.y() >> 8));
-        writeData(0x00 + (p2.y() & 0xFF));
+        writeData(p1.y() >> 8);
+        writeData(p1.y() & 0xFF);
+        writeData(p2.y() >> 8);
+        writeData(p2.y() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.x() + 0) >> 8));
-        writeData(0x00 + ((p1.x() + 0) & 0xFF));
-        writeData(0x00 + ((p2.x() + 0) >> 8));
-        writeData(0x00 + ((p2.x() + 0) & 0xFF));
+        writeData(p1.x() >> 8);
+        writeData(p1.x() & 0xFF);
+        writeData(p2.x() >> 8);
+        writeData(p2.x() & 0xFF);
         #else //MXGUI_ORIENTATION_HORIZONTAL_MIRRORED
         writeReg(0x36);
         writeData(0xE0);
         
         writeReg(0x2A);
-        writeData(0x00 + ((p1.y() + 80) >> 8));
-        writeData(0x00 + ((p1.y() + 80) & 0xFF));
-        writeData(0x00 + ((p2.y() + 80) >> 8));
-        writeData(0x00 + ((p2.y() + 80) & 0xFF));
+        writeData((p1.y() + 80) >> 8);
+        writeData((p1.y() + 80) & 0xFF);
+        writeData((p2.y() + 80) >> 8);
+        writeData((p2.y() + 80) & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.x() + 0) >> 8));
-        writeData(0x00 + ((p1.x() + 0) & 0xFF));
-        writeData(0x00 + ((p2.x() + 0) >> 8));
-        writeData(0x00 + ((p2.x() + 0) & 0xFF));
+        writeData(p1.x() >> 8);
+        writeData(p1.x() & 0xFF);
+        writeData(p2.x() >> 8);
+        writeData(p2.x() & 0xFF);
         #endif
     }
 
@@ -465,63 +465,63 @@ private:
         writeData(0xA0);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p1.x() + 80) >> 8));
-        writeData(0x00 + ((p1.x() + 80) & 0xFF));
-        writeData(0x00 + ((p2.x() + 80) >> 8));
-        writeData(0x00 + ((p2.x() + 80) & 0xFF));
+        writeData((p1.x() + 80) >> 8);
+        writeData((p1.x() + 80) & 0xFF);
+        writeData((p2.x() + 80) >> 8);
+        writeData((p2.x() + 80) & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.y() + 0) >> 8));
-        writeData(0x00 + ((p1.y() + 0) & 0xFF));
-        writeData(0x00 + ((p2.y() + 0) >> 8));
-        writeData(0x00 + ((p2.y() + 0) & 0xFF));
+        writeData(p1.y() >> 8);
+        writeData(p1.y() & 0xFF);
+        writeData(p2.y() >> 8);
+        writeData(p2.y() & 0xFF);
         #elif defined MXGUI_ORIENTATION_HORIZONTAL
         writeReg(0x36);
         writeData(0x00);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p1.x() + 0) >> 8));
-        writeData(0x00 + ((p1.x() + 0) & 0xFF));
-        writeData(0x00 + ((p2.x() + 0) >> 8));
-        writeData(0x00 + ((p2.x() + 0) & 0xFF));
+        writeData(p1.x() >> 8);
+        writeData(p1.x() & 0xFF);
+        writeData(p2.x() >> 8);
+        writeData(p2.x() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.y() + 0) >> 8));
-        writeData(0x00 + ((p1.y() + 0) & 0xFF));
-        writeData(0x00 + ((p2.y() + 0) >> 8));
-        writeData(0x00 + ((p2.y() + 0) & 0xFF));
+        writeData(p1.y() >> 8);
+        writeData(p1.y() & 0xFF);
+        writeData(p2.y() >> 8);
+        writeData(p2.y() & 0xFF);
         #elif defined MXGUI_ORIENTATION_VERTICAL_MIRRORED
         
         writeReg(0x36);
         writeData(0x60);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p1.x() + 0) >> 8));
-        writeData(0x00 + ((p1.x() + 0) & 0xFF));
-        writeData(0x00 + ((p2.x() + 0) >> 8));
-        writeData(0x00 + ((p2.x() + 0) & 0xFF));
+        writeData(p1.x() >> 8);
+        writeData(p1.x() & 0xFF);
+        writeData(p2.x() >> 8);
+        writeData(p2.x() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.y() + 0) >> 8));
-        writeData(0x00 + ((p1.y() + 0) & 0xFF));
-        writeData(0x00 + ((p2.y() + 0) >> 8));
-        writeData(0x00 + ((p2.y() + 0) & 0xFF));
+        writeData(p1.y() >> 8);
+        writeData(p1.y() & 0xFF);
+        writeData(p2.y() >> 8);
+        writeData(p2.y() & 0xFF);
         #else //MXGUI_ORIENTATION_HORIZONTAL_MIRRORED
         
         writeReg(0x36);
         writeData(0xC0);
 
         writeReg(0x2A);
-        writeData(0x00 + ((p1.x() + 0) >> 8));
-        writeData(0x00 + ((p1.x() + 0) & 0xFF));
-        writeData(0x00 + ((p2.x() + 0) >> 8));
-        writeData(0x00 + ((p2.x() + 0) & 0xFF));
+        writeData(p1.x() >> 8);
+        writeData(p1.x() & 0xFF);
+        writeData(p2.x() >> 8);
+        writeData(p2.x() & 0xFF);
 
         writeReg(0x2B);
-        writeData(0x00 + ((p1.y() + 80) >> 8));
-        writeData(0x00 + ((p1.y() + 80) & 0xFF));
-        writeData(0x00 + ((p2.y() + 80) >> 8));
-        writeData(0x00 + ((p2.y() + 80) & 0xFF));
+        writeData((p1.y() + 80) >> 8);
+        writeData((p1.y() + 80) & 0xFF);
+        writeData((p2.y() + 80) >> 8);
+        writeData((p2.y() + 80) & 0xFF);
         #endif
     }
 

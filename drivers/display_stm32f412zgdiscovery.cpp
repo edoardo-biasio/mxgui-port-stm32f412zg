@@ -226,32 +226,32 @@ DisplayImpl::DisplayImpl(): buffer(0)
     
     enableRccFmc();
 
-    enableRccGpioBank(0x08U);
-    enableRccGpioBank(0x10U);
-    enableRccGpioBank(0x20U);
+    enableRccGpioBank(RCC_AHB1ENR_GPIODEN);
+    enableRccGpioBank(RCC_AHB1ENR_GPIOEEN);
+    enableRccGpioBank(RCC_AHB1ENR_GPIOFEN);
 
     /// Setup the non-FMC gpios (backlight, reset, tearing effect)
-    Gpio<GPIOF_BASE, 5>::mode(Mode::OUTPUT);
+    Gpio<PF, 5>::mode(Mode::OUTPUT);
 
-    Gpio<GPIOD_BASE, 11>::mode(Mode::OUTPUT);
-    Gpio<GPIOD_BASE, 11>::speed(Speed::HIGH);
+    Gpio<PD, 11>::mode(Mode::OUTPUT);
+    Gpio<PD, 11>::speed(Speed::HIGH);
 
-    Gpio<GPIOG_BASE, 4>::mode(Mode::INPUT);
+    Gpio<PG, 4>::mode(Mode::INPUT);
 
     /// Turn on backlight
-    Gpio<GPIOF_BASE, 5>::high();
+    Gpio<PF, 5>::high();
 
     /// Reset sequence
-    Gpio<GPIOD_BASE, 11>::low();
+    Gpio<PD, 11>::low();
     delayMs(5);
 
-    Gpio<GPIOD_BASE, 11>::high();
+    Gpio<PD, 11>::high();
     delayMs(10);
     
-    Gpio<GPIOD_BASE, 11>::low();
+    Gpio<PD, 11>::low();
     delayMs(20);
 
-    Gpio<GPIOD_BASE, 11>::high();
+    Gpio<PD, 11>::high();
     delayMs(10);
 
     

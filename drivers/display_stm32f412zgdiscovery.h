@@ -570,18 +570,14 @@ private:
     
     static void enableRccFmc()
     {
-        volatile unsigned int* rccFMCAHB3Reg = (volatile unsigned int*)(0x38U + 0x3800U + 0x00020000U + 0x40000000U);
-        *rccFMCAHB3Reg |= 0x01U;
-        volatile unsigned int dummy = *rccFMCAHB3Reg;
-        (void) dummy; // enforce write finished
+        RCC->AHB3ENR |= RCC_AHB3ENR_FSMCEN;
+        RCC_SYNC();
     }
 
     static void enableRccGpioBank(unsigned int bankReg)
     {
-        volatile unsigned int* rccFMCAHB1Reg = (volatile unsigned int*)(0x30U + 0x3800U + 0x00020000U + 0x40000000U);
-        *rccFMCAHB1Reg |= bankReg;
-        volatile unsigned int dummy = *rccFMCAHB1Reg;
-        (void) dummy; // enforce write finished
+        RCC->AHB1ENR |= bankReg;
+        RCC_SYNC();
     }
 
     template <unsigned int P, unsigned char N>
@@ -595,36 +591,39 @@ private:
 
     static inline void initGpiosFMC()
     {
+        /// local to method
+        using namespace miosix;
+
         /// PD7 is NE1 (Display CS)
-        setGpioAlternateMode<GPIOD_BASE, 7>();
+        setGpioAlternateMode<PD, 7>();
 
         /// Switch 16 miosix::Gpio pins to alternate FMC mode for 16 bit data bus
-        setGpioAlternateMode<GPIOD_BASE, 0>();  // DB2
-        setGpioAlternateMode<GPIOD_BASE, 1>();  // DB3
-        setGpioAlternateMode<GPIOD_BASE, 8>();  // DB13
-        setGpioAlternateMode<GPIOD_BASE, 9>();  // DB14
-        setGpioAlternateMode<GPIOD_BASE, 10>(); // DB15
-        setGpioAlternateMode<GPIOD_BASE, 14>(); // DB0
-        setGpioAlternateMode<GPIOD_BASE, 15>(); // DB1
+        setGpioAlternateMode<PD, 0>();  // DB2
+        setGpioAlternateMode<PD, 1>();  // DB3
+        setGpioAlternateMode<PD, 8>();  // DB13
+        setGpioAlternateMode<PD, 9>();  // DB14
+        setGpioAlternateMode<PD, 10>(); // DB15
+        setGpioAlternateMode<PD, 14>(); // DB0
+        setGpioAlternateMode<PD, 15>(); // DB1
 
-        setGpioAlternateMode<GPIOE_BASE, 7>();  // DB4
-        setGpioAlternateMode<GPIOE_BASE, 8>();  // DB5
-        setGpioAlternateMode<GPIOE_BASE, 9>();  // DB6
-        setGpioAlternateMode<GPIOE_BASE, 10>(); // DB7
-        setGpioAlternateMode<GPIOE_BASE, 11>(); // DB8
-        setGpioAlternateMode<GPIOE_BASE, 12>(); // DB9
-        setGpioAlternateMode<GPIOE_BASE, 13>(); // DB10
-        setGpioAlternateMode<GPIOE_BASE, 14>(); // DB11
-        setGpioAlternateMode<GPIOE_BASE, 15>(); // DB12
+        setGpioAlternateMode<PE, 7>();  // DB4
+        setGpioAlternateMode<PE, 8>();  // DB5
+        setGpioAlternateMode<PE, 9>();  // DB6
+        setGpioAlternateMode<PE, 10>(); // DB7
+        setGpioAlternateMode<PE, 11>(); // DB8
+        setGpioAlternateMode<PE, 12>(); // DB9
+        setGpioAlternateMode<PE, 13>(); // DB10
+        setGpioAlternateMode<PE, 14>(); // DB11
+        setGpioAlternateMode<PE, 15>(); // DB12
 
         /// PD4 is FMC_NOE
-        setGpioAlternateMode<GPIOD_BASE, 4>();
+        setGpioAlternateMode<PD, 4>();
 
         /// PD5 is FMC_NWE
-        setGpioAlternateMode<GPIOD_BASE, 5>();
+        setGpioAlternateMode<PD, 5>();
 
         // PF0 is A0 (RS)
-        setGpioAlternateMode<GPIOF_BASE, 0>();
+        setGpioAlternateMode<PF, 0>();
     }
 
     Color *buffer; ///< For scanLineBuffer
